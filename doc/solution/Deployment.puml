@@ -1,0 +1,27 @@
+@startuml
+!include <C4/C4_Container>
+
+System_Ext(channel, "Channel")
+
+Boundary(aws, "AWS", "") {
+    Boundary(areaA, "Area A") {
+        SetPropertyHeader("Item","Value")
+        AddProperty("Pod type","K8S")
+        AddProperty("Pod number","4")
+        AddProperty("Container","cpu:4, memory:16G")
+        Container(pusher, "reservation A")
+    }
+    Boundary(areaB, "Area B") {
+        SetPropertyHeader("Item","Value")
+        AddProperty("EC2 type","m5.large")
+        AddProperty("EC2 number","1")
+        Container(reservation, "reservation B")
+    }
+}
+
+Rel(channel,reservation, "Make/Cancel Reservation", "")
+Rel(channel,pusher, "Make/Cancel Reservation", "")
+
+SHOW_LEGEND()
+
+@enduml

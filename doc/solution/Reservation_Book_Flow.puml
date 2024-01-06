@@ -1,0 +1,14 @@
+@startuml
+
+title Book
+
+participant "Channel" as distributor
+participant "reservation" as reservation
+participant "Supplier" as supplier
+
+distributor -> reservation: make reservations
+reservation -> supplier: make Reservation book rq
+supplier --> reservation: make Reservation rs
+reservation --> distributor: return the processed result of reservations
+
+@enduml

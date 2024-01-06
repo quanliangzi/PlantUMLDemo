@@ -1,0 +1,21 @@
+@startuml
+!include <C4/C4_Container>
+
+LAYOUT_LANDSCAPE()
+
+System_Ext(channel, "Distributor")
+
+Boundary(configuration, "") {
+SetPropertyHeader("Special Function","Solution")
+AddProperty("","")
+Container(reservation, "reservation", "", "")
+
+Rel(channel, reservation, "make/cancel Reservation", "")
+
+Container_Ext(rds, "RDS")
+Rel(reservation, rds, "use")
+}
+
+
+SHOW_LEGEND()
+@enduml

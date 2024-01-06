@@ -1,0 +1,30 @@
+@startuml
+!include <C4/C4_Container>
+
+LAYOUT_LANDSCAPE()
+
+Boundary(configuration, "Configuration") {
+    SetPropertyHeader("Table","Note")
+    AddProperty("","")
+    AddProperty("","")
+    AddProperty("","")
+    Container(rds, "RDS")
+}
+
+Person(op, "Operator")
+Person(engineer, "Engineer")
+
+SetPropertyHeader("Data","Note")
+AddProperty("","")
+AddProperty("","")
+AddProperty("","")
+Rel(op, configuration, "Configure")
+
+SetPropertyHeader("Data","Note")
+AddProperty("","")
+AddProperty("","")
+AddProperty("","")
+Rel(engineer, configuration, "Configure")
+
+SHOW_LEGEND()
+@enduml

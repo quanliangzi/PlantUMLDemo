@@ -1,0 +1,14 @@
+@startuml
+
+title Cancel
+
+participant "Channel" as channel
+participant "reservation" as reservation
+participant "Supplier" as supplier
+
+channel -> reservation: cancel reservations
+reservation -> supplier: cancel reservation book rq
+supplier --> reservation: cancel reservation rs
+reservation --> channel: return the processed result of reservations
+
+@enduml
